@@ -1,0 +1,45 @@
+#Number Guessing !
+#Import random Module
+
+import random
+
+top_of_range = input("Please insert top range number: ")
+
+if top_of_range.isdigit():    #Declare proceed process dengan digit(number)
+    top_of_range = int(top_of_range) #
+
+    if top_of_range <= 0:
+        print("please insert number more than 0")
+        quit()
+
+else:
+    print("please insert a number next time")
+    quit()
+
+random_number = random.randint(0, top_of_range)
+# random.randint = numbr akan keluar termasuk dengan numebr yang kita declare exp: "0,10" Output: 0-10
+# random.randrange = number random akan keluar tak termasuk dengan nmberyang kita declare exp: "-1,11" Output: 0-10
+
+guest=0
+while True:
+    guest +=1
+    number_guessing = input("Make a guest : ")
+    if number_guessing.isdigit():
+        number_guessing = int(number_guessing)
+    else:
+        print("please type a number next time ")
+        continue # bring us back to the top loop
+
+    if number_guessing == random_number:
+        print("you got it")
+        break    # ending the loop
+    else:
+        print("You got it wrong")
+        if number_guessing > random_number:
+              print("Your number higher then the Actual number")
+        else:
+              print("Your number lower then the Actual number")
+
+print("you got it ." + str(number_guessing) + " is correct in "+ str(guest) + "time.") 
+
+#print("you got it ." , number_guessing , " is correct in ", guest , "time.") * kalau pakai koma takpayah declare variable type 
